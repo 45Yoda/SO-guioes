@@ -1,0 +1,51 @@
+se execl("/usr/bin/eunaoexisto","ls","-l",NULL);
+
+há um erro e corre o codigo depois do execl
+
+whereis ls (mostra a directoria)
+
+
+
+execl("/usr/bin/ls", /*nome do fich. exec*/
+        "ls", /*argv[0]*/
+        "-l", /*argv[1]*/
+        NULL);
+
+execlp("ls", /*nome do fich. exec*/
+        "ls", /*argv[0]*/
+        "-l", /*argv[1]*/
+        NULL);
+
+char* opts={"ls","-l","-a",NULL};
+execvp("ls",
+        opts);
+
+_exit(x) x!=0 deu erro
+
+//importante sq
+
+int main(){
+    int minha;
+
+    printf("Antes\n");
+
+    if(fork()==0){
+    //carrega para disco
+    execl("/usr/bin/ls",
+             "ls",
+            "-l",
+            NULL);
+
+            //mensagem de erro relacionada com o erro
+            perror("naoexiste");
+
+            _exit(1);
+    }
+    else{wait(NULL);
+    }
+    //so corre se houver um erro
+    printf("Depois\n");
+    return 0;
+}
+
+argv[0] tipicamente tem o nome do executavel

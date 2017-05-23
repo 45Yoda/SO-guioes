@@ -1,0 +1,42 @@
+
+fork(); //bifurcacao
+
+getpid() id processo
+getppid() id processo pai
+
+p=fork()
+p!=0 (pid do filho)
+p=0 (não tem filhos)
+
+ps xa | grep exp
+possivel ver os processos do executavel exp
+Z (Zombie) (defunct) (memória alocada neste processo à espera que o pai o liberte)
+
+sleep(1)//dormir 1 segundo
+
+se o pai acabar primeiro que o filho(orfão) o filho vai
+achar que o seu ppid=1 (processo incial de boot)
+
+w=wait(NULL);
+w (pid do filho);
+
+fork e waits equilibrados
+
+wait(&status) apontador para a variavel para wait preencher a variavel com dados
+
+
+//importante que fode
+int main (){
+    int N=10;
+    int i;
+
+    for(i=0;i<N;i++){
+
+        if(fork()==0){
+
+            _exit(0);
+        }
+    }
+
+    wait();
+}

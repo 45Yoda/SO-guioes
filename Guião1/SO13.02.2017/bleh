@@ -1,0 +1,31 @@
+0 -- stdin
+1 -- stdout
+2 -- stderr
+
+rwx = utilizador (read,write,execute) (4+2+1)
+rw- = g (read,write) (4+2)
+r-- = o (read) (4)
+
+0764(base 8)
+
+0644 (so o utilizador é que escreve)
+0600 (ficheiro privado)
+
+experiencia time
+
+time ./mycat-v2 1 < LIXO > /dev/null
+real 0m3,162s
+time ./mycat-v2 10 < LIXO > /dev/null
+real 0m0,341s
+time ./mycat-v2 100 < LIXO > /dev/null
+real 0m0,035s
+time ./mycat-v2 1000 < LIXO > /dev/null
+real 0m0,006s
+time ./mycat-v2 10000 < LIXO > /dev/null (bit bucket)
+real 0m0,002s
+
+1000 vezes mais demorado (comparando 1 com 10000)
+
+
+--5
+./reaad <texto
